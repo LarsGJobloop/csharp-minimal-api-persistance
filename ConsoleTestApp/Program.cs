@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 
 namespace SQLiteTest
 {
@@ -11,20 +6,20 @@ namespace SQLiteTest
   {
     public static void Main(string[] args)
     {
-      Console.WriteLine("Starting SQLite Test Application\n\n");
+      System.Console.WriteLine("Starting SQLite Test Application\n\n");
 
       SQLiteConnection sqlite_connection;
 
-      Console.WriteLine("\nConnecting to database");
+      System.Console.WriteLine("\nConnecting to database");
       sqlite_connection = CreateConnection();
 
-      Console.WriteLine("\nCreating tables");
+      System.Console.WriteLine("\nCreating tables");
       // CreateTable(sqlite_connection);
 
-      Console.WriteLine("\nInserting Data");
+      System.Console.WriteLine("\nInserting Data");
       InsertData(sqlite_connection);
 
-      Console.WriteLine("\nQuering Database");
+      System.Console.WriteLine("\nQuering Database");
       ReadData(sqlite_connection);
     }
 
@@ -38,7 +33,7 @@ namespace SQLiteTest
       {
         sql_connection.Open();
       }
-      catch (Exception except)
+      catch (System.Exception except)
       {
         // TODO: Decide what to do with error
       }
@@ -91,7 +86,7 @@ namespace SQLiteTest
       while (sqlite_datareader.Read())
       {
         string myreader = sqlite_datareader.GetString(0);
-        Console.WriteLine(myreader);
+        System.Console.WriteLine(myreader);
       }
 
       connection.Close();
