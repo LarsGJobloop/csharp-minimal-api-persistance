@@ -14,7 +14,7 @@ namespace SQLiteTest
       sqlite_connection = CreateConnection();
 
       System.Console.WriteLine("\nCreating tables");
-      // CreateTable(sqlite_connection);
+      CreateTable(sqlite_connection);
 
       System.Console.WriteLine("\nInserting Data");
       InsertData(sqlite_connection);
@@ -48,8 +48,8 @@ namespace SQLiteTest
       sqlite_command = connection.CreateCommand();
 
       // Create tables
-      string Createsql = "CREATE TABLE SampleTable (Col1 VARCHAR(20), Col2 INT)";
-      string Createsql1 = "CREATE TABLE SampleTable1 (Col1 VARCHAR(20), Col2 INT)";
+      string Createsql = "CREATE TABLE IF NOT EXISTS SampleTable (Col1 VARCHAR(20), Col2 INT)";
+      string Createsql1 = "CREATE TABLE IF NOT EXISTS SampleTable1 (Col1 VARCHAR(20), Col2 INT)";
 
       sqlite_command.CommandText = Createsql;
       sqlite_command.ExecuteNonQuery();
